@@ -1,0 +1,23 @@
+#! /bin/sh
+
+if [ $# -lt 2 ]
+then
+    echo "Usage: $0 host source ..."
+    exit 1
+fi
+
+here="`pwd`"
+cd ~/Downloads/Arr
+
+host="$1"
+shift
+
+while [ $# -gt 0 ]
+do
+    source="$1"
+    rsync -av --progress --inplace --no-whole-file --checksum \
+          "$host":'"'Torrents/Complete/"$source"'"' .
+    shift
+done
+
+cd "$here"

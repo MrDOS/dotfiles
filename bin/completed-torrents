@@ -1,0 +1,23 @@
+#! /bin/sh
+
+# One spare line for the following prompt, and one for the preceeding prompt so
+# it's obvious that the whole output is being shown.
+SPARE_LINES=2
+
+if [ $# -lt 1 ]
+then
+    echo "Usage: $0 host [number]"
+    exit 1
+fi
+
+host="$1"
+
+if [ $# -ge 2 ]
+then
+    number=$2
+else
+    number=`tput lines`
+    number=`expr $number - $SPARE_LINES`
+fi
+
+ssh "$host" ls -1rt \$HOME/Torrents/Complete | tail -n $number
