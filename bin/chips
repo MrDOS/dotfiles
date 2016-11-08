@@ -1,0 +1,5 @@
+#! /bin/sh
+
+echo "Yew wot mate?"
+ssh -N -D 1080 -p 1622 evelyn.seenet.ca
+echo "You are now entering the great white north."

@@ -1,0 +1,5 @@
+#! /bin/sh
+
+echo "Welcome to 'Murica."
+ssh -N -D 1080 guinevere.seenet.ca
+echo "You are now entering the great white north."

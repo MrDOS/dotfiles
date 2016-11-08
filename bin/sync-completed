@@ -1,0 +1,17 @@
+#! /bin/sh
+
+if [ $# -lt 1 ]
+then
+    echo "Usage: $0 host"
+    exit 1
+fi
+
+here="`pwd`"
+cd ~/Downloads/Arr
+
+host="$1"
+
+rsync -av --progress \
+      * "$host":Torrents/Complete
+
+cd "$here"
